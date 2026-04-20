@@ -222,16 +222,18 @@ void webSocketEvent(WStype_t type, uint8_t * payload, size_t length) {
       updateDisplay("READY", "Scan card");
       
       // Send device registration
-      DynamicJsonDocument doc(1024);
-      doc["type"] = "device_register";
-      doc["deviceId"] = DEVICE_ID;
-      doc["deviceType"] = "rfid_reader";
-      doc["roomId"] = ROOM_ID;
-      doc["timestamp"] = millis();
-      
-      String message;
-      serializeJson(doc, message);
-      webSocket.sendTXT(message);
+      {
+        DynamicJsonDocument doc(1024);
+        doc["type"] = "device_register";
+        doc["deviceId"] = DEVICE_ID;
+        doc["deviceType"] = "rfid_reader";
+        doc["roomId"] = ROOM_ID;
+        doc["timestamp"] = millis();
+        
+        String message;
+        serializeJson(doc, message);
+        webSocket.sendTXT(message);
+      }
       
       indicateSuccess();
       break;
@@ -240,22 +242,24 @@ void webSocketEvent(WStype_t type, uint8_t * payload, size_t length) {
       Serial.println("WebSocket message received: " + String((char*)payload));
       
       // Handle commands from server
-      DynamicJsonDocument doc(512);
-      DeserializationError error = deserializeJson(doc, payload);
-      
-      if (!error) {
-        String command = doc["command"];
+      {
+        DynamicJsonDocument doc(512);
+        DeserializationError error = deserializeJson(doc, payload);
         
-        if (command == "ping") {
-          // Respond to ping
-          DynamicJsonDocument response(256);
-          response["type"] = "pong";
-          response["deviceId"] = DEVICE_ID;
-          response["timestamp"] = millis();
+        if (!error) {
+          String command = doc["command"];
           
-          String responseStr;
-          serializeJson(response, responseStr);
-          webSocket.sendTXT(responseStr);
+          if (command == "ping") {
+            // Respond to ping
+            DynamicJsonDocument response(256);
+            response["type"] = "pong";
+            response["deviceId"] = DEVICE_ID;
+            response["timestamp"] = millis();
+            
+            String responseStr;
+            serializeJson(response, responseStr);
+            webSocket.sendTXT(responseStr);
+          }
         }
       }
       break;
