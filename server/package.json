@@ -1,0 +1,20 @@
+{
+  "name": "room-find-iot-server",
+  "version": "1.0.0",
+  "description": "IoT WebSocket server for Room Find app",
+  "main": "iot-websocket-server.js",
+  "scripts": {
+    "start": "node iot-websocket-server.js",
+    "dev": "nodemon iot-websocket-server.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.0",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "keywords": ["iot", "websocket", "esp32", "rfid", "room-finder"],
+  "author": "Room Find Team",
+  "license": "MIT"
+}
