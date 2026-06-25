@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --app-bg: #f6f7fb;
+    --panel-bg: #ffffff;
+    --panel-border: rgba(15, 23, 42, 0.08);
+    --muted-fg: #000000;
+    --accent: #00a98a;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .theme-dark {
+    --app-bg: #0b1120;
+    --panel-bg: #0f1729;
+    --panel-border: rgba(255, 255, 255, 0.05);
+    --muted-fg: #94a3b8;
+    --accent: #00d4aa;
+  }
+
+  .theme-light {
+    --app-bg: #f6f7fb;
+    --panel-bg: #ffffff;
+    --panel-border: rgba(15, 23, 42, 0.08);
+    --muted-fg: #475569;
+    --accent: #00a98a;
+  }
+
+  .theme-night {
+    --app-bg: #070b14;
+    --panel-bg: #0a0f1c;
+    --panel-border: rgba(255, 255, 255, 0.08);
+    --muted-fg: #7f8ca3;
+    --accent: #00c49b;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    background-color: var(--app-bg);
+    color: hsl(var(--foreground));
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  select,
+  option {
+    background-color: var(--panel-bg);
+    color: #ffffff;
+  }
+
+  .theme-light select,
+  .theme-light option {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    border-color: rgba(15, 23, 42, 0.15) !important;
+  }
+
+  .theme-light .text-white {
+    color: #0f172a;
+  }
+
+  .theme-light .text-\[\#94A3B8\] {
+    color: #475569;
+  }
+
+  .theme-light .text-\[\#00D4AA\] {
+    color: #0f766e;
+  }
+
+  .theme-light .bg-\[\#0F1729\] {
+    background-color: #ffffff;
+  }
+
+  .theme-light .bg-\[\#0B1120\] {
+    background-color: #f6f7fb;
+  }
+
+  .theme-light .bg-white\/5 {
+    background-color: rgba(15, 23, 42, 0.05);
+  }
+
+  .theme-light .placeholder\:text-white\/20::placeholder {
+    color: rgba(15, 23, 42, 0.4) !important;
+  }
+
+  .theme-light .border-white\/5 {
+    border-color: rgba(15, 23, 42, 0.08);
+  }
+
+  .theme-light .divide-white\/5 > :not([hidden]) ~ :not([hidden]) {
+    border-color: rgba(15, 23, 42, 0.08);
+  }
+
+  .theme-light .hover\:bg-white\/5:hover {
+    background-color: rgba(15, 23, 42, 0.04);
+  }
+
+  .theme-light .hover\:bg-white\/10:hover {
+    background-color: rgba(15, 23, 42, 0.08);
+  }
+
+  .theme-light .border-white\/10 {
+    border-color: rgba(15, 23, 42, 0.12);
+  }
+
+  .theme-light .focus\:border-\[\#00D4AA\]\/50:focus {
+    border-color: rgba(15, 118, 110, 0.6);
+  }
+
+  .theme-light .text-white\/70 {
+    color: rgba(15, 23, 42, 0.7);
+  }
+
+  .theme-light .hover\:text-white:hover {
+    color: #0f172a !important;
+  }
+
+  /* Support for light theme dashboard filters */
+  .theme-light .bg-\[\#1E293B\]\/60 {
+    background-color: rgba(15, 23, 42, 0.05) !important;
+  }
+
+  .theme-light .bg-\[\#00D4AA\] {
+    background-color: #00a98a !important;
+  }
+
+  .theme-light .text-\[\#0F1729\] {
+    color: #ffffff !important;
+  }
+
+  .theme-light .text-\[\#94A3B8\] {
+    color: #475569 !important;
+  }
+
+  /* Date Input styling overrides for light theme */
+  .theme-light input[type="date"] {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    border-color: rgba(15, 23, 42, 0.15) !important;
+  }
+}
