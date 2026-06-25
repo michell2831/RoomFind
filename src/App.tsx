@@ -1,5 +1,5 @@
 import { Suspense, useState, useEffect } from "react";
-import { supabase, createTempClient } from '@/lib/supabase'
+import { supabase, createTempClient } from "./lib/supabase";
 import { Routes, Route, Navigate } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import Layout from "./components/layout/Layout";
