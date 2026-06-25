@@ -52,8 +52,8 @@ export default function Sidebar({ onLogout, currentUser, isOpen, onClose, collap
           <aside className="absolute left-0 top-0 h-full w-60 bg-[var(--panel-bg)] flex flex-col border-r border-[color:var(--panel-border)]">
             <div className="px-4 py-4 border-b border-[color:var(--panel-border)] flex items-center justify-between">
               <div className="flex items-center gap-2.5">
-                <div className="w-12 h-12 flex items-center justify-center p-1 overflow-hidden">
-                  <img src="/logo.png" alt="Logo" className="w-full h-full object-contain" />
+                <div className="w-12 h-12 flex items-center justify-center overflow-hidden">
+                  <img src="/logo_trans.png" alt="Logo" className="w-full h-full object-contain" />
                 </div>
                 <div>
                   <p className="text-white font-semibold text-sm leading-tight tracking-wide" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>

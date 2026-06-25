@@ -274,7 +274,7 @@ export default function RFIDPage({ users, onAssignRFID, onDeactivateCard, onActi
         )}
       </div>
        {/* Tabs and Actions Row */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-6">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
         <div className="flex flex-wrap items-center gap-2">
           {(["all", "active", "inactive"] as const).map((f) => (
             <button
@@ -311,7 +311,7 @@ export default function RFIDPage({ users, onAssignRFID, onDeactivateCard, onActi
 
         {/* Right side: Search and Add Card (Only visible when showing assigned cards table) */}
         {filter !== "unassigned" && (
-          <div className="flex items-center gap-3 w-full sm:w-auto">
+          <div className="flex flex-wrap items-center gap-3 w-full md:w-auto justify-start md:justify-end">
             <div className="relative flex-1 sm:flex-none">
               <Search size={13} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#94A3B8]" />
               <input
@@ -351,8 +351,8 @@ export default function RFIDPage({ users, onAssignRFID, onDeactivateCard, onActi
             </div>
           </div>
 
-          <div className="bg-[#0F1729] rounded-xl border border-white/5 overflow-hidden">
-              <table className="w-full">
+          <div className="bg-[#0F1729] rounded-xl border border-white/5 overflow-hidden overflow-x-auto w-full">
+              <table className="w-full min-w-[800px]">
                 <thead>
                   <tr className="border-b border-white/5">
                     {["Card UID", "Assigned To", "Department", "Status", "Assigned Date", "Actions"].map((h) => (

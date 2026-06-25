@@ -52,7 +52,7 @@ export default function Layout({
   return (
     <div className="min-h-screen bg-[var(--app-bg)] flex">
       <Sidebar onLogout={onLogout} currentUser={currentUser} isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-      <div className="flex-1 sm:ml-60 flex flex-col min-h-screen">
+      <div className="flex-1 min-w-0 sm:ml-60 flex flex-col min-h-screen">
         <TopBar
           isPolling={isPolling}
           lastUpdated={lastUpdated}
@@ -66,7 +66,7 @@ export default function Layout({
           onClearNotification={onClearNotification}
           onClearAllNotifications={onClearAllNotifications}
         />
-        <main className="flex-1 p-6 overflow-auto">
+        <main className="flex-1 p-4 sm:p-6 overflow-x-hidden overflow-y-auto w-full min-w-0">
           <Outlet />
         </main>
       </div>

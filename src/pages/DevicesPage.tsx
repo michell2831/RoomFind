@@ -124,7 +124,7 @@ export default function DevicesPage({ devices, rooms, onUpdateDevice }: DevicesP
         </div>
 
         <div className="overflow-x-auto">
-          <table className="w-full text-left">
+          <table className="w-full text-left min-w-[800px]">
             <thead>
               <tr className="border-b border-[color:var(--panel-border)] bg-white/5">
                 <th className="px-6 py-4 text-[#94A3B8] font-semibold text-sm">Device Details</th>
@@ -251,7 +251,7 @@ export default function DevicesPage({ devices, rooms, onUpdateDevice }: DevicesP
               </button>
             </div>
 
-            <div className="p-8 space-y-6">
+            <div className="p-6 sm:p-8 space-y-6">
               <div className="space-y-4">
                 <div className="space-y-2">
                   <label className="text-[#94A3B8] text-xs font-bold uppercase tracking-wider px-1">

@@ -42,8 +42,8 @@ export default function LogsPage({ logs, isAdmin, currentUserId }: LogsPageProps
   return (
     <div className="space-y-5 max-w-6xl">
       {/* Header */}
-      <div className="flex items-center justify-between flex-wrap gap-3">
-        <div className="flex items-center gap-2">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="flex flex-wrap items-center gap-2">
           {(["all", "check_in", "check_out", "exceeded"] as const).map((f) => (
             <button
               key={f}
@@ -61,21 +61,21 @@ export default function LogsPage({ logs, isAdmin, currentUserId }: LogsPageProps
           ))}
         </div>
 
-        <div className="flex items-center gap-3">
-          <div className="relative">
+        <div className="flex flex-wrap items-center gap-3 w-full md:w-auto justify-start md:justify-end">
+          <div className="relative flex-1 sm:flex-none">
             <Search size={13} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#94A3B8]" />
             <input
               type="text"
               placeholder="Search logs..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="bg-white/5 border border-white/10 rounded-lg pl-8 pr-4 py-2 text-white text-xs placeholder:text-white/20 focus:outline-none focus:border-[#00D4AA]/50 w-52"
+              className="bg-white/5 border border-white/10 rounded-lg pl-8 pr-4 py-2 text-white text-xs placeholder:text-white/20 focus:outline-none focus:border-[#00D4AA]/50 w-full sm:w-52"
             />
           </div>
           <button
             onClick={() => setShowFilters(!showFilters)}
             className={cn(
-              "flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs transition-all border",
+              "flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs transition-all border flex-shrink-0",
               showFilters
                 ? "bg-[#00D4AA]/15 text-[#00D4AA] border-[#00D4AA]/30"
                 : "bg-white/5 text-[#94A3B8] border-transparent hover:bg-white/10"
@@ -148,8 +148,8 @@ export default function LogsPage({ logs, isAdmin, currentUserId }: LogsPageProps
       </div>
 
       {/* Table */}
-      <div className="bg-[#0F1729] rounded-xl border border-white/5 overflow-hidden">
-        <table className="w-full">
+      <div className="bg-[#0F1729] rounded-xl border border-white/5 overflow-hidden overflow-x-auto w-full">
+        <table className="w-full min-w-[800px]">
           <thead>
             <tr className="border-b border-white/5">
               {["Event", "User", "Room", "Card UID", "Timestamp"].map((h) => (

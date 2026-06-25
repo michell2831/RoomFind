@@ -316,8 +316,8 @@ export default function SchedulesPage({
         </div>
       )}
       {/* Header */}
-      <div className="flex items-center justify-between flex-wrap gap-3">
-        <div className="flex items-center gap-2 flex-wrap">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="flex flex-wrap items-center gap-2">
           <button
             onClick={() => setDayFilter("all")}
             className={cn(
@@ -347,21 +347,21 @@ export default function SchedulesPage({
             </button>
           ))}
         </div>
-        <div className="flex items-center gap-3">
-          <div className="relative">
+        <div className="flex flex-wrap items-center gap-3 w-full md:w-auto justify-start md:justify-end">
+          <div className="relative flex-1 sm:flex-none">
             <Search size={13} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#94A3B8]" />
             <input
               type="text"
               placeholder="Search schedules..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="bg-white/5 border border-white/10 rounded-lg pl-8 pr-4 py-2 text-white text-xs placeholder:text-white/20 focus:outline-none focus:border-[#00D4AA]/50 w-52"
+              className="bg-white/5 border border-white/10 rounded-lg pl-8 pr-4 py-2 text-white text-xs placeholder:text-white/20 focus:outline-none focus:border-[#00D4AA]/50 w-full sm:w-52"
             />
           </div>
           {isAdmin && (
             <button
               onClick={openAdd}
-              className="flex items-center gap-1.5 bg-[#00D4AA] hover:bg-[#00D4AA]/90 text-[#0F1729] font-semibold px-3 py-2 rounded-lg text-xs transition-all"
+              className="flex items-center gap-1.5 bg-[#00D4AA] hover:bg-[#00D4AA]/90 text-[#0F1729] font-semibold px-3 py-2 rounded-lg text-xs transition-all flex-shrink-0"
             >
               <Plus size={13} />
               Add Schedule
@@ -371,8 +371,8 @@ export default function SchedulesPage({
       </div>
 
       {/* Table */}
-      <div className="bg-[#0F1729] rounded-xl border border-white/5 overflow-hidden">
-        <table className="w-full">
+      <div className="bg-[#0F1729] rounded-xl border border-white/5 overflow-hidden overflow-x-auto w-full">
+        <table className="w-full min-w-[800px]">
           <thead>
             <tr className="border-b border-white/5">
               {["Room", "Subject", "Section", "Faculty", "Day", "Time", isAdmin ? "Actions" : ""].filter(Boolean).map((h) => (
