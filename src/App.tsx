@@ -14,7 +14,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import ChangePasswordPage from "./pages/ChangePasswordPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
 import ProtectedRoute from "./components/layout/ProtectedRoute";
-import { Toaster } from "@/components/ui/sonner";
+import { Toaster } from "./components/ui/sonner";
 import { Room, User, Schedule, DashboardStats, AccessLog, RFIDCard, Device, RoomSession, Notification } from "./types";
 import iotService, { IoTEvent, RFIDScanEvent } from "./services/iotService";
 import { toast } from "sonner";
