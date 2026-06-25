@@ -47,6 +47,16 @@ function App() {
   };
   const [stats, setStats] = useState<DashboardStats>(defaultStats);
 
+  // Sync theme on mount for non-logged-in views (like LoginPage)
+  useEffect(() => {
+    if (typeof window === "undefined" || typeof document === "undefined") return;
+    const saved = window.localStorage.getItem("theme");
+    const theme = (saved === "light" || saved === "night") ? saved : "light";
+    const root = document.documentElement;
+    root.classList.remove("theme-dark", "theme-night", "theme-light");
+    root.classList.add(`theme-${theme}`);
+  }, []);
+
   // Reactively calculate dashboard stats whenever data arrays change
   useEffect(() => {
     const todayStr = new Date().toDateString();
